@@ -23,6 +23,7 @@ public class MainPage {
     private By loginRegistration = By.xpath("//a[text()='Вход и регистрация']");
     private By postAdvert = By.xpath("//span[text()='Разместить объявление']");
     private By signInTextHeading = By.xpath("//h2[text()='Вход']");
+    private By linkAllCategories = By.xpath("//strong[text()='Автомобили']");
 
     public MainPage clickLoginRegistration() {
         driver.findElement(loginRegistration).click();
@@ -37,5 +38,23 @@ public class MainPage {
     public String getHeadingLoginWindow() {
         return driver.findElement(signInTextHeading).getText();
     }
+
+    public BusinessPage clickForBusiness(){
+        driver.findElement(linkForBusiness).click();
+        return new BusinessPage(driver);
+    }
+
+    public  BusinessPage goToBusiness(){
+        this.clickForBusiness();
+        return new BusinessPage(driver);
+    }
+
+    public MainPage clickAllCategories(){
+        driver.findElement(buttonAllCategories).click();
+        return new MainPage(driver);
+    }
+
+    public String getTextLinkInAllCategories(){return driver.findElement(linkAllCategories).getText();}
+
 
 }

@@ -37,6 +37,23 @@ public class MainPageTest {
     }
 
 
+    //возможность перехода во вкладку Для бизнеса с главной страницы
+
+    @Test
+    public void clickBusinessTest(){
+        BusinessPage businessPage = mainPage.goToBusiness();
+
+    }
+
+
+    //проверяем, появилось ли окно при нажатии на кнопку Все категории
+    @Test
+    public void openNewWindowAllCategories(){
+        MainPage newmainpage = mainPage.clickAllCategories();
+        String linkTextAllCategries = mainPage.getTextLinkInAllCategories();
+        Assert.assertEquals("Автомобили ›", linkTextAllCategries);
+    }
+
 
     @After
     public void tearDown(){
